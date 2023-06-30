@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+:root {
+    --background-color: #fbf5ff;
+    --text-color: #06000a;
+    --primary-buttons: #b859f8;
+    --active-project: #7500c4;
+    --secondary-buttons: #ffffff;
+    --accent-color: #ae40f7;
+    --shadow-todo: 0px 0px 15px 2px #ae40f7;
+}
+
+* {
+    font-family: 'Rubik', sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: var(--background-color);
+    display: grid;
+    grid-template: 1fr 7fr / 1fr 3fr;
+    max-height: 100vh;
+    
+}
+
+header {
+    display: flex;
+    height: 120px;
+    padding: 15px 30px;
+    justify-content: flex-start;
+    > h2 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.8rem;
+        > img {
+            width: 3rem;
+        }
+    }
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+sidebar {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding: 10px;
+    max-height: 1050px;
+    display: flex;
+    flex-direction: column;
+    > h3 {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        align-self: flex-start;
+        > img {
+            width: 30px;
+        }
+        > img:hover {
+            cursor: pointer;
+        }
+    }
+    > ul {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        > li {
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space: nowrap;
+            overflow: hidden;
+            list-style-type: none;
+            transition: 300ms;
+            background-color: var(--primary-buttons);
+            height: 40px;            
+            width: 150px;
+            padding: 0px 10px;
+            border-radius: 5px;
+            text-align: start;
+            gap: 10px;
+            > img {
+                width: 25px;
+
+            }
+            > img:hover {
+                opacity: 60%;
+            }
+        }
+        > li:hover {
+            cursor: pointer;
+            opacity: 90%;
+        }
+    }
+}
+
+main {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 10px;
+    overflow: auto;
+    > form {
+        transition: 300ms;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        > input {
+            transition: 300ms;
+            padding: 10px;
+            outline: none;
+            transition: 300ms;
+            border: none;
+            background-color: var(--secondary-buttons);
+            border-radius: 5px;
+            flex: auto;
+        }
+        > input:hover {
+            opacity: 40%;
+        }
+        > button {
+            transition: 300ms;
+            background-color: var(--primary-buttons);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            flex: 1;
+            font-size: 1rem;
+        }
+        > button:hover {
+            cursor: pointer;
+            opacity: 80%;
+            flex: 2;
+        }
+        margin-bottom: 10px;
+    }
+    > .todoContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 15px;
+        gap: 30px;
+        > .todo {
+            display: flex;
+            flex: auto;
+            height: 40px;
+            flex-direction: row;
+            flex: initial;
+            padding: 10px 20px;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-todo);
+            border-radius: 21px;
+            flex-wrap: wrap;
+            > img {
+                width: 2rem;
+            }
+            > img:hover {
+                cursor: pointer;
+            }
+            > p {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+.modal {
+    display: none;
+    flex-direction: column;
+    background-color: var(--background-color);
+    box-shadow: var(--shadow-todo);
+    width: min(70vw, 450px);
+    height: 400px;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    > form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        > label {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        > input { 
+            width: 80%;
+            height: 20px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            padding: 10px;
+            background-color: var(--secondary-buttons);
+            
+        }
+        > button {
+            transition: 300ms;
+            width: 120px;
+            background-color: var(--primary-buttons);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        > button:hover {
+            cursor: pointer;
+            opacity: 80%;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    main > form {
+        transition: 300ms;
+        margin-bottom: 40px;
+    }
+    main > .todoContainer > .todo {
+        height: 100px;
+        > img {
+            width: 30px;
+        }
+    }
+    sidebar {
+        grid-row: 2 / 3;
+        justify-self: center;
+        > h3 {
+            align-self: center;
+        }
+    }
+    main {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    body {
+        grid-template: 150px 180px / 1fr;
+    }
+}

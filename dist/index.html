@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon">
+    <script src="./main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h2><img src="./assets/logo.svg" alt="logo">Todo-List</h2>
+    </header>
+    <sidebar>
+        <h3>Projects<img src="./assets/add.svg" id="addProject" alt=""></h3>
+        <ul>
+            <li>Demo Project<img src="./assets/delete.svg" alt=""></li>
+        </ul>
+    </sidebar>
+    <main>
+        <form action="">
+            <input type="text" placeholder="Todo name" id="todoName" required>
+            <input type="date" id="todoDate" required>
+            <button type="submit" id="submissionButton">Create</button>
+        </form>
+        <div class="todoContainer">
+            <div class="todo">
+                <p>TodoTitle</p>
+                <p>01/02/2023</p>
+                <img src="./assets/delete.svg" class="deleteTodo" alt="Delete">
+            </div>
+        </div>
+    </main>
+    <div class="modal">
+        <form action="" id="modalForm">
+            <label for="projectInput">Project:</label>
+            <input type="text" id="projectInput" title="Please only use letters." maxlength="12" pattern="^[a-zA-Z]*$" required>
+            <button type="submit" id="modalSubmit">Create</button>
+        </form>
+    </div>
+</body>
+</html>
